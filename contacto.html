@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — Vivir no Rural</title>
+<meta name="description" content="Cuéntanos qué casa buscas en Galicia. Respondemos en menos de 48 horas, sin compromiso.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="wordmark"><span class="leaf">🌿</span> Vivir no Rural</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+        <li><a href="como-funciona.html" data-i18n="nav_how">Cómo funciona</a></li>
+        <li><a href="por-que-nosotros.html" data-i18n="nav_why">Por qué nosotros</a></li>
+        <li><a href="quienes-somos.html" data-i18n="nav_about">Quiénes somos</a></li>
+        <li><a href="faq.html" data-i18n="nav_faq">Preguntas</a></li>
+        <li><a href="contacto.html" class="btn btn-primary" style="padding:9px 20px;" data-i18n="nav_contact">Contacto</a></li>
+        <li class="lang-item">
+          <div class="lang-toggle" id="langSwitch">
+            <button data-lang="es" class="active">ES</button><span>/</span>
+            <button data-lang="en">EN</button><span>/</span>
+            <button data-lang="fr">FR</button><span>/</span>
+            <button data-lang="de">DE</button><span>/</span>
+            <button data-lang="it">IT</button>
+          </div>
+        </li>
+      </ul>
+      <button class="menu-toggle" id="burgerBtn" aria-label="Menú">Menú</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-header" style="padding-bottom:56px;">
+    <div class="wrap">
+      <span class="kicker" data-i18n="contact_kicker">Contacto</span>
+      <h1 data-i18n="contact_title">Hablemos de tu proyecto</h1>
+      <p class="lead" data-i18n="contact_subtitle">Cuéntanos qué buscas. Respondemos en menos de 48 horas, sin compromiso.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <div class="contact-item"><span class="ic">✉️</span><div><strong data-i18n="contact_email_label">Email</strong><span>hola@vivirnorural.com</span></div></div>
+        <div class="contact-item"><span class="ic">💬</span><div><strong data-i18n="contact_whatsapp_label">WhatsApp</strong><span>+34 XXX XXX XXX</span></div></div>
+        <div class="contact-item"><span class="ic">📍</span><div><strong data-i18n="contact_location_label">Dónde trabajamos</strong><span data-i18n="contact_location_value">Galicia (España), atención a distancia desde cualquier país</span></div></div>
+      </div>
+
+      <form class="card" id="contactForm">
+        <input type="checkbox" name="botcheck" class="honey" tabindex="-1" autocomplete="off">
+        <div class="row2">
+          <div class="field"><label for="f_name" data-i18n="form_name">Nombre</label><input type="text" id="f_name" name="name" required></div>
+          <div class="field"><label for="f_email" data-i18n="form_email">Email</label><input type="email" id="f_email" name="email" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f_phone" data-i18n="form_phone">Teléfono / WhatsApp (opcional)</label><input type="tel" id="f_phone" name="phone"></div>
+          <div class="field">
+            <label for="f_budget" data-i18n="form_budget">Presupuesto aproximado</label>
+            <select id="f_budget" name="budget">
+              <option value="<50000" data-i18n="budget_1">Menos de 50.000 €</option>
+              <option value="50000-150000" data-i18n="budget_2">50.000 € – 150.000 €</option>
+              <option value="150000-300000" data-i18n="budget_3">150.000 € – 300.000 €</option>
+              <option value=">300000" data-i18n="budget_4">Más de 300.000 €</option>
+              <option value="no-se" data-i18n="budget_5">Aún no lo sé</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f_message" data-i18n="form_message">¿Qué tipo de casa y zona buscas?</label><textarea id="f_message" name="message" rows="4" required></textarea></div>
+        <div class="consent">
+          <input type="checkbox" id="f_consent" required>
+          <label for="f_consent" data-i18n="form_consent">He leído y acepto la <a href="privacidad.html">política de privacidad</a>. Usaremos tus datos solo para responder a tu consulta.</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="submitBtn" data-i18n="form_submit">Enviar consulta</button>
+        <div id="formMsg"></div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="wordmark">🌿 Vivir no Rural</a>
+        <p style="max-width:36ch;margin-top:10px;" data-i18n="footer_tagline">Tu casa en la Galicia rural, sin moverte de donde estás.</p>
+      </div>
+      <div class="footer-links">
+        <a href="como-funciona.html" data-i18n="nav_how">Cómo funciona</a>
+        <a href="faq.html" data-i18n="nav_faq">Preguntas</a>
+        <a href="aviso-legal.html" data-i18n="footer_legal">Aviso legal</a>
+        <a href="privacidad.html" data-i18n="footer_privacy">Privacidad</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="year"></span> <span data-i18n="footer_rights">Vivir no Rural. Todos los derechos reservados.</span></span>
+      <span data-i18n="footer_domain">vivirnorural.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
