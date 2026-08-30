@@ -29,6 +29,16 @@
   document.addEventListener('DOMContentLoaded', function(){
     applyLanguage(currentLang);
 
+    // Añade aquí el número completo, solo con cifras y prefijo internacional.
+    // Ejemplo para España: 34600111222
+    const WHATSAPP_NUMBER = '';
+    const whatsappContact = document.getElementById('whatsappContact');
+    const whatsappLink = document.getElementById('whatsappLink');
+    if(WHATSAPP_NUMBER && whatsappContact && whatsappLink){
+      whatsappLink.href = 'https://wa.me/' + WHATSAPP_NUMBER;
+      whatsappContact.hidden = false;
+    }
+
     const langSwitch = document.getElementById('langSwitch');
     if(langSwitch){
       langSwitch.addEventListener('click', function(e){
@@ -42,7 +52,21 @@
     const burger = document.getElementById('burgerBtn');
     const navLinks = document.getElementById('navLinks');
     if(burger && navLinks){
-      burger.addEventListener('click', function(){ navLinks.classList.toggle('open'); });
+      burger.addEventListener('click', function(){
+        const isOpen = navLinks.classList.toggle('open');
+        document.body.classList.toggle('nav-open', isOpen);
+        burger.setAttribute('aria-expanded', String(isOpen));
+        burger.textContent = isOpen ? 'Cerrar' : 'Menú';
+      });
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && navLinks.classList.contains('open')){
+          navLinks.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          burger.setAttribute('aria-expanded', 'false');
+          burger.textContent = 'Menú';
+          burger.focus();
+        }
+      });
     }
 
     // Mark active nav link based on current page
@@ -59,20 +83,24 @@
       const q = item.querySelector('.faq-q');
       const a = item.querySelector('.faq-a');
       if(!q || !a) return;
+      q.setAttribute('aria-expanded', 'false');
       q.addEventListener('click', function(){
         const isOpen = item.classList.contains('open');
         document.querySelectorAll('.faq-item.open').forEach(function(other){
           if(other !== item){
             other.classList.remove('open');
             other.querySelector('.faq-a').style.maxHeight = null;
+            other.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
           }
         });
         if(isOpen){
           item.classList.remove('open');
           a.style.maxHeight = null;
+          q.setAttribute('aria-expanded', 'false');
         } else {
           item.classList.add('open');
           a.style.maxHeight = a.scrollHeight + 'px';
+          q.setAttribute('aria-expanded', 'true');
         }
       });
     });
@@ -92,7 +120,7 @@
 
       form.addEventListener('submit', async function(e){
         e.preventDefault();
-        if(form.botcheck.checked){ return; }
+        if(form.elements.botcheck && form.elements.botcheck.checked){ return; }
 
         const dict = translations[currentLang];
         formMsg.className = '';
@@ -111,7 +139,7 @@
         };
 
         if(WEB3FORMS_ACCESS_KEY === "REPLACE_WITH_YOUR_WEB3FORMS_ACCESS_KEY"){
-          formMsg.textContent = "⚠️ Configura tu clave de Web3Forms en assets/main.js (busca WEB3FORMS_ACCESS_KEY) para activar el envío de emails reales. Mientras tanto, escribe a hola@vivirnorural.com.";
+          formMsg.innerHTML = 'El formulario estará disponible muy pronto. Mientras tanto, escríbenos a <a href="mailto:hola@vivirnorural.com">hola@vivirnorural.com</a>.';
           formMsg.className = 'err';
           formMsg.style.display = 'block';
           return;

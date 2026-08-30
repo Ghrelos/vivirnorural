@@ -1,0 +1,17 @@
+VIVIR NO RURAL - WEB REPARADA
+
+Contenido
+- Páginas internas con nombres consistentes.
+- Redirecciones desde los nombres antiguos para evitar enlaces rotos.
+- Aviso legal y privacidad separados correctamente.
+- Menú móvil y preguntas frecuentes mejorados.
+- Archivo CNAME preparado para vivirnorural.com en GitHub Pages.
+
+Antes de publicar
+1. Completar los datos reales del titular en aviso-legal.html y en las cinco traducciones de i18n.js.
+2. Sustituir la clave provisional de Web3Forms en main.js para activar el formulario.
+3. Confirmar que hola@vivirnorural.com recibe correo.
+
+Publicación en GitHub
+Sustituye los archivos de la web actual por todo el contenido de esta carpeta,
+manteniendo el archivo CNAME en la raíz del repositorio publicado.
