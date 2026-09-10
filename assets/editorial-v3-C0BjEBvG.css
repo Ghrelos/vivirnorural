@@ -2,3 +2,6 @@
 
 /* Alineación editorial del texto corrido; no altera la estructura ni los encabezados. */
 main p:not(.eyebrow):not(.step-indicator):not(.map-selection-summary):not(.form-error):not([role="status"]),main .prose li{ text-align:justify; text-justify:inter-word; }
+
+/* Centrado del título lateral de la consulta, sin alterar el resto del bloque. */
+.contact-layout aside .aside-title{text-align:center}
