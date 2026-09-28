@@ -5,3 +5,9 @@ main p:not(.eyebrow):not(.step-indicator):not(.map-selection-summary):not(.form-
 
 /* Centrado del título lateral de la consulta, sin alterar el resto del bloque. */
 .contact-layout aside .aside-title{text-align:center}
+
+/* Refinamiento de lanzamiento: ergonomía táctil, formularios y lectura móvil. */
+.menu-button,.button,.map-toolbar button,.radio-list label,.form-actions button{min-height:44px}
+.language-switch a{display:inline-flex;align-items:center;justify-content:center;min-width:28px;min-height:28px}
+.field input,.field textarea,.field select,.area-controls input,.area-controls select{font-size:16px}
+@media(max-width:580px){main p:not(.eyebrow):not(.step-indicator):not(.map-selection-summary):not(.form-error):not([role="status"]),main .prose li{text-align:left;text-justify:auto}.site-header{position:sticky;top:0}.site-header nav{max-height:calc(100vh - 72px);overflow-y:auto}.home-hero h1{font-size:clamp(42px,13vw,52px)}.hero-index{justify-content:space-between;gap:8px}.hero-index span{flex:1}.contact-layout aside{display:block}.contact-layout aside .portrait img{width:100%;height:250px;object-position:center 42%}.contact-layout aside .aside-title{margin:24px 0 14px}.contact-layout aside>p{font-size:14px}.draft-note{font-size:12px;line-height:1.6}#galicia-map,.contact-layout #galicia-map{height:min(72vh,360px)}.map-toolbar{display:grid;grid-template-columns:1fr 1fr}.map-toolbar button{font-size:11px;padding:10px 8px}.map-toolbar button:last-child{grid-column:1/-1}.footer-bottom div{row-gap:12px}}
